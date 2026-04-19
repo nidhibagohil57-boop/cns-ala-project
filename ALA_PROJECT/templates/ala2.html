@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hash Function Lab - ALA 2</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <body class="ala-page custom-ala2">
+    <div class="container custom-shell">
+
+      <!-- Header -->
+      <div class="header-box">
+        <h2>Hashing & Integrity Demonstration</h2>
+        <p class="tag">CNS ALA 2</p>
+          This experiment compares different SHA algorithms and shows how a small change in input leads to major differences in output.
+        </p>
+      </div>
+
+      <!-- FORM -->
+      <form method="POST" class="form-box single">
+
+        <label>Primary Text Input</label>
+        <textarea name="text" required placeholder="Enter base text...">{{ original_text }}</textarea>
+
+        <label>Altered Text (optional)</label>
+        <textarea name="changed_text" placeholder="Modify slightly to observe changes...">{{ changed_text }}</textarea>
+
+        <button type="submit">Run Analysis</button>
+      </form>
+
+      <!-- RESULT -->
+      {% if result %}
+      <div class="result-box success">
+
+        <h3>Hash Comparison Output</h3>
+
+        <p><b>Base Input:</b></p>
+        <pre>{{ result.original_text }}</pre>
+
+        <p><b>Altered Input:</b></p>
+        <pre>{{ result.changed_text }}</pre>
+
+        <hr>
+
+        <h4>SHA-1 Results</h4>
+        <pre>{{ result.original_hashes.SHA1 }}</pre>
+        <pre>{{ result.changed_hashes.SHA1 }}</pre>
+
+        <h4>SHA-256 Results</h4>
+        <pre>{{ result.original_hashes.SHA256 }}</pre>
+        <pre>{{ result.changed_hashes.SHA256 }}</pre>
+
+        <h4>SHA-512 Results</h4>
+        <pre>{{ result.original_hashes.SHA512 }}</pre>
+        <pre>{{ result.changed_hashes.SHA512 }}</pre>
+
+      </div>
+
+      <!-- AVALANCHE -->
+      <div class="result-box info">
+
+        <h3>Change Impact (Avalanche Effect)</h3>
+
+        <div class="metric-box">
+          <p><b>SHA-1</b></p>
+          <p>Bits Changed: {{ result.avalanche.SHA1.bit_changed }} / {{ result.avalanche.SHA1.bit_total }}</p>
+          <p>Hex Changed: {{ result.avalanche.SHA1.hex_changed }} / {{ result.avalanche.SHA1.hex_total }}</p>
+        </div>
+
+        <div class="metric-box">
+          <p><b>SHA-256</b></p>
+          <p>Bits Changed: {{ result.avalanche.SHA256.bit_changed }} / {{ result.avalanche.SHA256.bit_total }}</p>
+          <p>Hex Changed: {{ result.avalanche.SHA256.hex_changed }} / {{ result.avalanche.SHA256.hex_total }}</p>
+        </div>
+
+        <div class="metric-box">
+          <p><b>SHA-512</b></p>
+          <p>Bits Changed: {{ result.avalanche.SHA512.bit_changed }} / {{ result.avalanche.SHA512.bit_total }}</p>
+          <p>Hex Changed: {{ result.avalanche.SHA512.hex_changed }} / {{ result.avalanche.SHA512.hex_total }}</p>
+        </div>
+
+        <p class="note">
+          Observation: Even a minor variation in input drastically alters the output hash.
+        </p>
+
+      </div>
+      {% endif %}
+
+      <!-- NAV -->
+      <div class="nav-link">
+        <a href="/">Return to Main Page</a>
+      </div>
+
+    </div>
+  </body>
+</html>
