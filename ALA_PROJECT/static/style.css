@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  text-align: center;
+  background: #f6f8fc;
+  color: #2f3542;
+}
+
+/* ===== COMMON CONTAINER ===== */
+.container {
+  width: 85%;
+  margin: auto;
+  border-radius: 12px;
+}
+
+/* ===== HOME PAGE ===== */
+.home-page {
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.home-page a {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 200px;
+  background: #dfe7fd;
+  color: #3742fa;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.home-page a:hover {
+  background: #c7d2fe;
+}
+
+/* ===== ALA GLOBAL ===== */
+.ala-page {
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.ala-container {
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+  color: #34495e;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+/* ===== INPUTS ===== */
+textarea,
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #dcdde1;
+  background: #f9fbfd;
+  margin-bottom: 12px;
+}
+
+/* ===== BUTTON ===== */
+button {
+  background: #74b9ff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #4da3ff;
+}
+
+/* ===== RESULT CARD ===== */
+.result-card {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #f4f8ff;
+  border: 1px solid #dfe6f1;
+}
+
+/* ===== CODE BOX ===== */
+.mono {
+  background: #eef3f9;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+/* ===== LINK ===== */
+.back-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #6c8cff;
+  text-decoration: none;
+}
+
+/* ===== ALA-1 ===== */
+.ala1-page {
+  background: linear-gradient(135deg, #f8fbff, #eef4ff);
+}
+
+.ala1-panels {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.ala1-form {
+  flex: 1;
+  background: #f9fbff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* ===== ALA-2 ===== */
+.ala2-page {
+  background: linear-gradient(135deg, #fdfbfb, #f1f2f6);
+}
+
+.ala2-metric-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ala2-metric-item {
+  flex: 1;
+  background: #f4f7fb;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* ===== ALA-3 ===== */
+.ala3-page {
+  background: linear-gradient(135deg, #f3f9f7, #eaf7f3);
+}
+
+.ala3-panels {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.ala3-form {
+  flex: 1;
+  background: #f9fbff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.ala3-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ala3-item {
+  flex: 1;
+  background: #f4f7fb;
+  padding: 10px;
+  border-radius: 10px;
+}
+/* ===== STRUCTURE IMPROVEMENT ===== */
+
+/* Section spacing */
+.section {
+  margin-top: 20px;
+}
+
+/* Form boxes */
+.ala1-form,
+.ala3-form,
+.ala2-page form {
+  border: 1px solid #e3e8f0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Panels layout (side by side) */
+.ala1-panels,
+.ala3-panels {
+  margin-top: 20px;
+}
+
+/* Add spacing between inputs */
+label {
+  display: block;
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* Improve inputs look */
+textarea,
+input {
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Result card stronger structure */
+.result-card {
+  border-left: 4px solid #74b9ff;
+}
+
+/* ALA-2 metric boxes */
+.ala2-metric-item {
+  border: 1px solid #e3e8f0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* ALA-3 result grid */
+.ala3-item {
+  border: 1px solid #e3e8f0;
+}
+
+/* Headings separation */
+h3 {
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Container spacing */
+.ala-container {
+  border: 1px solid #e3e8f0;
+}
+
+/* Buttons alignment */
+button {
+  display: block;
+  margin-top: 10px;
+}
+
+/* Improve back link */
+.back-link {
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #eef3ff;
+}
+/* ===== HOME PAGE STRUCTURE FIX ===== */
+
+.home-container {
+  width: 70%;
+  margin: 50px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.home-page .header {
+  display: flex;
+  border-bottom: 1px solid #dcdde1;
+}
+
+.home-page .logo 
+  .logo-image {
+  width: 110px;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+.home-page .university {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #2f3542;
+}
+
+/* Sections */
+.home-page .section {
+  padding: 12px;
+  border-bottom: 1px solid #dcdde1;
+  font-weight: 500;
+  background: #f8fbff;
+}
+
+/* Student info */
+.home-page .student {
+  padding: 12px;
+  border-bottom: 1px solid #dcdde1;
+  text-align: left;
+}
+
+/* Buttons */
+.home-page .buttons {
+  display: flex;
+}
+
+.home-page .buttons a {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  border-right: 1px solid #dcdde1;
+  background: #eef3ff;
+  text-decoration: none;
+  color: #3742fa;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.home-page .buttons a:last-child {
+  border-right: none;
+}
+
+.home-page .buttons a:hover {
+  background: #dfe7fd;
+}

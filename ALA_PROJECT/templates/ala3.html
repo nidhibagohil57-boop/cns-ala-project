@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Message Authentication Lab - ALA 3</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <body class="ala-page custom-ala3">
+    <div class="container custom-shell">
+
+      <!-- Header -->
+      <div class="header-box">
+        <h2>HMAC Authentication Simulation</h2>
+        <p class="tag">CNS ALA 3</p>
+          This experiment demonstrates secure message transmission using HMAC with a shared secret key between sender and receiver.
+        </p>
+      </div>
+
+      <!-- FORMS -->
+      <div class="form-wrapper">
+
+        <!-- SENDER -->
+        <form method="POST" class="form-box">
+          <input type="hidden" name="action" value="send" />
+
+          <h3>Sender Module</h3>
+
+          <label>Message Content</label>
+          <textarea name="sender_message" required placeholder="Enter message...">{{ sender_form.message }}</textarea>
+
+          <label>Secret Key</label>
+          <input type="text" name="sender_key" required placeholder="Enter key" value="{{ sender_form.key }}" />
+
+          <input type="hidden" name="receiver_message" value="{{ receiver_form.message }}" />
+          <input type="hidden" name="receiver_key" value="{{ receiver_form.key }}" />
+          <input type="hidden" name="receiver_mac" value="{{ receiver_form.mac }}" />
+
+          <button type="submit">Compute MAC</button>
+        </form>
+
+        <!-- RECEIVER -->
+        <form method="POST" class="form-box">
+          <input type="hidden" name="action" value="verify" />
+
+          <h3>Receiver Module</h3>
+
+          <label>Incoming Message</label>
+          <textarea name="receiver_message" required placeholder="Paste message...">{{ receiver_form.message }}</textarea>
+
+          <label>Secret Key</label>
+          <input type="text" name="receiver_key" required value="{{ receiver_form.key }}" />
+
+          <label>MAC Value</label>
+          <input type="text" name="receiver_mac" required placeholder="Paste MAC" value="{{ receiver_form.mac }}" />
+
+          <input type="hidden" name="sender_message" value="{{ sender_form.message }}" />
+          <input type="hidden" name="sender_key" value="{{ sender_form.key }}" />
+
+          <button type="submit">Check Integrity</button>
+        </form>
+
+      </div>
+
+      <!-- SENDER RESULT -->
+      {% if sender_result %}
+      <div class="result-box success">
+        <h3>Generated Output</h3>
+
+        <p><b>Message:</b></p>
+        <pre>{{ sender_result.message }}</pre>
+
+        <p><b>Computed MAC:</b></p>
+        <pre>{{ sender_result.mac }}</pre>
+      </div>
+      {% endif %}
+
+      <!-- ERROR -->
+      {% if receiver_error %}
+      <div class="result-box error">
+        <h3>Processing Error</h3>
+        <p>{{ receiver_error }}</p>
+      </div>
+      {% endif %}
+
+      <!-- RECEIVER RESULT -->
+      {% if receiver_result %}
+      <div class="result-box {{ 'success' if receiver_result.verified else 'error' }}">
+        <h3>Verification Summary</h3>
+
+        <p>
+          Result:
+          <b>
+            {{ 'MAC Matched Successfully' if receiver_result.verified else 'MAC Mismatch Detected' }}
+          </b>
+        </p>
+
+        <p><b>Received MAC:</b></p>
+        <pre>{{ receiver_result.received_mac }}</pre>
+
+        <p><b>Recomputed MAC:</b></p>
+        <pre>{{ receiver_result.expected_mac }}</pre>
+
+        <p><b>Integrity Check:</b> {{ receiver_result.integrity_status }}</p>
+        <p><b>Authentication:</b> {{ receiver_result.auth_status }}</p>
+      </div>
+      {% endif %}
+
+      <!-- NAV -->
+      <div class="nav-link">
+        <a href="/">Return to Main Page</a>
+      </div>
+
+    </div>
+  </body>
+</html>
